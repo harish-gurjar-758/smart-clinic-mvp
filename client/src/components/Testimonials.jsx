@@ -46,13 +46,13 @@ export default function Testimonials() {
 
     return (
 
-        <section className="py-20 bg-gray-50">
+        <section className="py-24 bg-gradient-to-b from-white to-blue-50">
 
             <div className="max-w-7xl mx-auto px-6">
 
-                {/* SECTION HEADER */}
+                {/* HEADER */}
 
-                <div className="text-center mb-12">
+                <div className="text-center mb-14">
 
                     <h2 className="text-4xl font-bold text-gray-800">
                         What Our Patients Say
@@ -64,14 +64,14 @@ export default function Testimonials() {
 
                 </div>
 
-                {/* CAROUSEL */}
+                {/* SWIPER */}
 
                 <Swiper
                     modules={[Autoplay]}
                     spaceBetween={30}
-                    loop={true}
+                    loop
                     autoplay={{
-                        delay: 2500,
+                        delay: 3000,
                         disableOnInteraction: false
                     }}
                     breakpoints={{
@@ -83,14 +83,14 @@ export default function Testimonials() {
 
                     {testimonials.map((review, index) => (
 
-                        <SwiperSlide key={index}>
+                        <SwiperSlide key={index} className="h-full">
 
                             <motion.div
-                                whileHover={{ y: -8 }}
-                                initial={{ opacity: 0, y: 30 }}
+                                initial={{ opacity: 0, y: 40 }}
                                 whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.4, delay: index * 0.2 }}
-                                className="bg-white p-8 rounded-2xl shadow-lg relative"
+                                whileHover={{ y: -10 }}
+                                transition={{ duration: 0.4 }}
+                                className="h-full flex flex-col justify-between bg-white/80 backdrop-blur-lg p-8 rounded-2xl shadow-lg hover:shadow-xl transition relative border border-gray-100"
                             >
 
                                 {/* QUOTE ICON */}
@@ -100,14 +100,14 @@ export default function Testimonials() {
                                     size={40}
                                 />
 
-                                {/* PATIENT IMAGE */}
+                                {/* USER INFO */}
 
                                 <div className="flex items-center gap-4 mb-4">
 
                                     <img
                                         src={review.image}
                                         alt={review.name}
-                                        className="w-14 h-14 rounded-full object-cover"
+                                        className="w-14 h-14 rounded-full object-cover border-2 border-blue-100"
                                     />
 
                                     <div>
@@ -124,27 +124,29 @@ export default function Testimonials() {
 
                                 </div>
 
-                                {/* REVIEW MESSAGE */}
+                                {/* MESSAGE */}
 
-                                <p className="text-gray-600 text-sm leading-relaxed">
+                                <p className="text-gray-600 text-sm leading-relaxed line-clamp-4 flex-grow">
                                     {review.message}
                                 </p>
 
-                                {/* RATING */}
+                                {/* FOOTER */}
 
-                                <div className="flex gap-1 mt-4 text-yellow-400">
+                                <div className="mt-6 flex items-center justify-between">
 
-                                    {[...Array(review.rating)].map((_, i) => (
-                                        <Star key={i} size={18} fill="currentColor" />
-                                    ))}
+                                    <div className="flex gap-1 text-yellow-400">
+
+                                        {[...Array(review.rating)].map((_, i) => (
+                                            <Star key={i} size={18} fill="currentColor" />
+                                        ))}
+
+                                    </div>
+
+                                    <span className="text-green-600 text-xs font-medium">
+                                        ✔ Verified
+                                    </span>
 
                                 </div>
-
-                                {/* VERIFIED BADGE */}
-
-                                <span className="text-green-600 text-xs font-medium mt-3 inline-block">
-                                    ✔ Verified Patient
-                                </span>
 
                             </motion.div>
 
