@@ -1,9 +1,20 @@
 import React from 'react'
+import Hero from './sections/Hero'
+import Services from './sections/Services'
+import Doctors from './sections/Doctors'
+import WhyChooseUs from './sections/WhyChooseUs'
+import Testimonials from './sections/Testimonials'
+import CTA from './sections/CTA'
 
 export default function Home() {
     return (
         <div>
-this is home page
+            <Hero />
+            <Services />
+            <Doctors />
+            <WhyChooseUs />
+            <Testimonials />
+            <CTA />
         </div>
     )
 }
