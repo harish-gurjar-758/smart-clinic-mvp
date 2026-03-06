@@ -5,7 +5,7 @@ import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 
 import Home from "./pages/Home";
-// import Doctors from "./pages/Doctors";
+import Doctors from "./pages/Doctors";
 // import BookAppointment from "./pages/BookAppointment";
 // import Contact from "./pages/Contact";
 
@@ -16,7 +16,7 @@ export default function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
-        {/* <Route path="/doctors" element={<Doctors />} /> */}
+        <Route path="/doctors" element={<Doctors />} />
         {/* <Route path="/book-appointment" element={<BookAppointment />} /> */}
         {/* <Route path="/contact" element={<Contact />} /> */}
       </Routes>
