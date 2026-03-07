@@ -1,8 +1,10 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { FaPhoneAlt, FaUserMd, FaCalendarCheck } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 export default function Hero() {
+    const navigate = useNavigate();
 
     const fadeLeft = {
         hidden: { opacity: 0, x: -80 },
@@ -55,6 +57,7 @@ export default function Hero() {
                         <motion.button
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
+                            onClick={() => navigate('/book-appointment')}
                             className="flex items-center gap-2 bg-blue-600 text-white px-7 py-3 rounded-xl shadow-lg hover:bg-blue-700 transition"
                         >
                             <FaCalendarCheck />
