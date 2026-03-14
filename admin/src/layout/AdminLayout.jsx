@@ -1,23 +1,51 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import AdminLayout from "../layout/AdminLayout";
-import Dashboard from "../pages/Dashboard/Dashboard";
+import { Layout } from "antd";
+import { Outlet } from "react-router-dom";
+import Sidebar from "../components/Sidebar";
+import Navbar from "../components/Navbar";
 
-// import Dashboard from "../pages/Dashboard";
-// import Appointments from "../pages/Appointments";
-// import Doctors from "../pages/Doctors";
-// import Settings from "../pages/Settings";
+const { Sider, Content } = Layout;
 
-export default function AdminRoutes() {
+export default function AdminLayout() {
     return (
-        <BrowserRouter>
-            <Routes>
-                <Route path="/" element={<AdminLayout />}>
-                    <Route index element={<Dashboard />} />
-                    {/* <Route path="appointments" element={<Appointments />} /> */}
-                    {/* <Route path="doctors" element={<Doctors />} /> */}
-                    {/* <Route path="settings" element={<Settings />} /> */}
-                </Route>
-            </Routes>
-        </BrowserRouter>
+        <Layout style={{ minHeight: "100vh" }}>
+
+            {/* Sidebar */}
+            <Sider breakpoint="lg" collapsedWidth="0">
+                <div
+                    style={{
+                        color: "white",
+                        fontSize: "20px",
+                        textAlign: "center",
+                        padding: "15px",
+                        fontWeight: "bold",
+                    }}
+                >
+                    CLINIC
+                </div>
+
+                <Sidebar />
+            </Sider>
+
+            <Layout>
+
+                {/* Navbar */}
+                <Navbar />
+
+                {/* Page Content */}
+                <Content style={{ margin: "20px" }}>
+                    <div
+                        style={{
+                            padding: "20px",
+                            background: "#fff",
+                            borderRadius: "10px",
+                            minHeight: "400px",
+                        }}
+                    >
+                        <Outlet />
+                    </div>
+                </Content>
+
+            </Layout>
+        </Layout>
     );
 }
