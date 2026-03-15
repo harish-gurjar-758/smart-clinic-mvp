@@ -1,8 +1,9 @@
-const User = require('../models/User');
-const DoctorProfile = require('../models/DoctorProfile');
-const jwt = require('jsonwebtoken');
-const crypto = require('crypto');
-const sendEmail = require('../utils/email');
+import User from '../models/User.js';
+import DoctorProfile from '../models/DoctorProfile.js'
+import jwt from 'jsonwebtoken';
+import crypto from 'crypto';
+import {sendEmail} from '../utils/email.js';
+
 
 // Generate Token
 const generateToken = (id) => {

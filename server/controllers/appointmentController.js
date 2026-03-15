@@ -1,6 +1,9 @@
-const Appointment = require('../models/Appointment');
-const DoctorProfile = require('../models/DoctorProfile');
-const sendEmail = require('../utils/email');
+import Appointment from '../models/Appointment.js';
+import DoctorProfile from '../models/DoctorProfile.js';
+import { sendEmail } from '../utils/email.js'
+
+// const DoctorProfile = require('../models/DoctorProfile');
+// const sendEmail = require('../utils/email');
 
 // @desc    Book Appointment
 // @route   POST /api/appointments/book
