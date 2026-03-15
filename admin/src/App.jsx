@@ -1,4 +1,5 @@
-import AdminRoutes from "./layout/AdminLayout";
+import AdminRoutes from "./router/AdminRoutes";
+
 
 
 function App() {
